@@ -23,6 +23,13 @@ class TestElementListFactory:
         assert_that(len(element_list), equal_to(2))
         assert_that(element_list.get_list()[0].get("name"), equal_to("reza"))
         assert_that(element_list.get_list()[1].get("name"), equal_to("ali"))
+
+    def test_GivenAJsonStrWithNewLineWhenCallCreateElementListByJsonStrThenItShouldReturnAnElementListWithData(self):
+        data_str = '[\n{\n"name": "reza",\n"family": "rezaei"\n},\n{\n"name": "ali",\n"family": "alizadeh"\n}\n]'
+        element_list = self.__element_list_factory.create_element_list_by_json_str(data_str)
+        assert_that(len(element_list), equal_to(2))
+        assert_that(element_list.get_list()[0].get("name"), equal_to("reza"))
+        assert_that(element_list.get_list()[1].get("name"), equal_to("ali"))
     
     def test_GivenWrongJsonStrWhenCallCreateElementListByJsonThenItShouldRaiseValueError(self):
         data_str = '[{{}'
