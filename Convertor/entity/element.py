@@ -27,3 +27,6 @@ class Element:
             return True
         else:
             return False
+    
+    def delete(self, key):
+        del self.__data[key]

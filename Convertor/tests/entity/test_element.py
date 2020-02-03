@@ -27,3 +27,8 @@ class TestElement:
     def test_CreateElementWhenCheckForValueThenItShouldReturnTrue(self):
         assert_that(self.__element.has_value(1), equal_to(True))
 
+    def test_CreateElementWhenDeleteAKeyThenItShouldRemoveKeyCorrectly(self):
+        assert_that(self.__element.has_key("name1"), equal_to(True))
+        self.__element.delete("name1")
+        assert_that(self.__element.has_key("name1"), equal_to(False))
+
