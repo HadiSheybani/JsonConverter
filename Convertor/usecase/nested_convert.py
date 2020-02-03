@@ -14,12 +14,15 @@ class NestedConvert:
     def __nest_convert(self, elements_list : list, keys : list):
         if len(keys) == 0:
             return self.__get_output_without_key(elements_list)
-        elements = elements_list.copy()
         nested_output = dict()
         key = keys.pop(0)
-        for element in elements:
+        for element in elements_list:
             value = element.get(key)
-            nested_output[value] = self.__nest_convert(self.__get_all_element_with_value(elements, value, key), keys)
+            if value is None:
+                continue
+            finded_element = self.__get_all_element_with_value(elements_list, value, key)
+            self.__delete_key_from_finded_element(finded_element, key)
+            nested_output[value] = self.__nest_convert(finded_element, keys.copy())
         return nested_output
 
 
@@ -27,9 +30,16 @@ class NestedConvert:
         output = list()
         for element in element_list:
             if (element.has_value(value)):
-                element.delete(key)
                 output.append(element)
         return output
+
+    def __delete_finded_elemets_from_list(self, element_list : list, finded_element : list):
+        for element in finded_element:
+            element_list.remove(element)
+    
+    def __delete_key_from_finded_element(self, finded_element : list, key):
+        for element in finded_element:
+            element.delete(key)
 
     def __get_output_without_key(self, element_list):
         output = list()
