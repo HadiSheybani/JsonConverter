@@ -1,11 +1,13 @@
 import sys
-from Convertor.__main__ import convertor
+from Convertor.__main__ import convert
+from Convertor.framework.convertor import Convertor
+import json
 
 if len(sys.argv) == 0:
     pass
 else:
     if sys.stdin.isatty():
-        convertor(sys.argv[1:])
+        convert(sys.argv[1:])
     else:
         data = sys.stdin.readlines()
         input_data = str()
@@ -15,4 +17,6 @@ else:
         argv.append(input_data)
         for flag in sys.argv[1:]:
             argv.append(flag)
-        convertor(argv)
+        convertor = Convertor()
+        result = convertor.convert(input_data, sys.argv[1:])
+        print(json.dumps(result, indent=4, sort_keys=True))

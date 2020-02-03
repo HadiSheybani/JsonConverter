@@ -6,7 +6,7 @@ from Convertor.usecase.nested_convert import NestedConvert
 from Convertor.usecase.element_list_factory import ElementListFactory
 from Convertor.help_command import help_command
 
-def convertor(argv):
+def convert(argv):
     if argv[0] == 'runtests':
         pytest.main(['-v', '-x', 'Convertor/tests'])
         return
@@ -25,4 +25,4 @@ def convertor(argv):
 
 
 if __name__ == "__main__":
-    convertor(sys.argv[1:])
+    convert(sys.argv[1:])
