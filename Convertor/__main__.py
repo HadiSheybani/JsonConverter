@@ -4,6 +4,7 @@ from Convertor.framework.console_parser import ConsoleParser
 from Convertor.framework.send_result_to_console import SendResultToConsole
 from Convertor.usecase.nested_convert import NestedConvert
 from Convertor.usecase.element_list_factory import ElementListFactory
+from Convertor.help_command import help_command
 
 def convertor(argv):
     if argv[0] == 'runtests':
@@ -17,6 +18,9 @@ def convertor(argv):
         send_result_to_console = SendResultToConsole()
         console_parser = ConsoleParser(element_list_factory, nested_convert, send_result_to_console)
         console_parser.parse(data, flags)
+        return
+    if argv[0] == 'help':
+        print(help_command)
         return
 
 

@@ -53,7 +53,7 @@ class TestConsoleParser:
         self.__element_list_facotory.create_element_list_by_json_str.return_value = elemets_list
         self.__nested_convert.convert.return_value = result
         self.__console_parser.parse(input_data, args)
-        self.__send_result.send.assert_called_once_with(result)
+        self.__send_result.send.assert_called_once_with(result, True)
 
     def test_GivenInputDataWhenCallParseAndSendResultInNoneThenItShouldReturnResult(self):
         console_parser = ConsoleParser(self.__element_list_facotory, self.__nested_convert)
