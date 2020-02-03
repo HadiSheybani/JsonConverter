@@ -1,13 +1,18 @@
 import sys
 from Convertor.__main__ import convert
 from Convertor.framework.convertor import Convertor
+from Convertor.tests.run_tests import run_tests
+from Convertor.help_command import help_command
 import json
 
-if len(sys.argv) == 0:
-    pass
+if len(sys.argv) == 1:
+    print(help_command)
 else:
     if sys.stdin.isatty():
-        convert(sys.argv[1:])
+        if sys.argv[1] == 'runtests':
+            run_tests()
+        if sys.argv[1] == 'help':
+            print(help_command)
     else:
         data = sys.stdin.readlines()
         input_data = str()
