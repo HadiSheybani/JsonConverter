@@ -6,7 +6,7 @@ from Convertor.framework.send_result import SendResult
 class ConsoleParser(Parser):
     def __init__(self, element_list_facotory : ElementListFactory, 
                     nested_convert : NestedConvert,
-                    send_result : SendResult):
+                    send_result : SendResult = None):
         self.__element_list_factory = element_list_facotory
         self.__nested_convert = nested_convert
         self.__send_result = send_result
@@ -20,4 +20,6 @@ class ConsoleParser(Parser):
 
         element_list = self.__element_list_factory.create_element_list_by_json_str(input_data)
         result = self.__nested_convert.convert(element_list, args)
+        if self.__send_result is None:
+            return result
         self.__send_result.send(result)

@@ -54,6 +54,18 @@ class TestConsoleParser:
         self.__nested_convert.convert.return_value = result
         self.__console_parser.parse(input_data, args)
         self.__send_result.send.assert_called_once_with(result)
+
+    def test_GivenInputDataWhenCallParseAndSendResultInNoneThenItShouldReturnResult(self):
+        console_parser = ConsoleParser(self.__element_list_facotory, self.__nested_convert)
+        input_data = '[{"input": "value"}]'
+        args = ["arg1", "arg2"]
+        elemets_list = [Element({"input" : "value"})]
+        result = {"input": [{"value"}]}
+        self.__element_list_facotory.create_element_list_by_json_str.return_value = elemets_list
+        self.__nested_convert.convert.return_value = result
+        output = console_parser.parse(input_data, args)
+        assert_that(output, equal_to(result))
+
     
     
 
