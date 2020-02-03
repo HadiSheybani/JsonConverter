@@ -29,10 +29,11 @@ class TestNestedConvert:
     
     def test_GivenElementListWhenCallConvertItShouldReturnCorrectData(self):
         self.__generate_elements()
-        keys = ["currency"]
+        keys = ["currency", "country", "city"]
+        correct_output = {"USD": {"US": {"Boston": [{"amount": 100}]}}}
         element_list = MagicMock(spec=ElementList)
         element_list.get_list.return_value = self.__elements
         element_list.__len__.return_value = 1
         nested_output = self.__nested_convert.convert(element_list, keys)
-        assert_that(nested_output, has_key("USD"))
+        assert_that(nested_output, equal_to(correct_output))
         
