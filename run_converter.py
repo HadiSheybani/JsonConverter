@@ -1,5 +1,4 @@
 import sys
-from Convertor.__main__ import convert
 from Convertor.framework.convertor import Convertor
 from Convertor.tests.run_tests import run_tests
 from Convertor.help_command import help_command
