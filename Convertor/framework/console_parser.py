@@ -17,9 +17,9 @@ class ConsoleParser(Parser):
         
         if len(args) == 0:
             raise ValueError("No Args")
-
+        
         element_list = self.__element_list_factory.create_element_list_by_json_str(input_data)
         result = self.__nested_convert.convert(element_list, args)
         if self.__send_result is None:
             return result
-        self.__send_result.send(result)
+        self.__send_result.send(result, True)

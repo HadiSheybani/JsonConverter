@@ -3,9 +3,12 @@ import json
 
 class SendResultToConsole(SendResult):
 
-    def send(self, data):
+    def send(self, data, prety_output = False):
         try:
-            result = json.dumps(data)
+            if prety_output:
+                result = json.dumps(data, indent=4, sort_keys=True)
+            else:
+                result = json.dumps(data)
             print(result)
         except:
             raise ValueError("Wrong Output")
