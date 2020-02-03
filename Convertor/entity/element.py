@@ -1,11 +1,12 @@
 
 
 class Element:
-    def __init__(self):
-        self.__data = dict()
-    
-    def __init__(self, data : "element data dictionary"):
-        self.__data = data
+
+    def __init__(self, data : "element data dictionary" = None):
+        if data is None:
+            self.__data = dict()
+        else:
+            self.__data = data.copy()
     
     def get(self, name):
         if name not in self.__data.keys():
