@@ -15,3 +15,15 @@ class Element:
     
     def set(self, name, value):
         self.__data[name] = value
+    
+    def has_key(self, key):
+        if key in self.__data.keys():
+            return True
+        else:
+            return False
+    
+    def has_value(self, value):
+        if value in self.__data.values():
+            return True
+        else:
+            return False

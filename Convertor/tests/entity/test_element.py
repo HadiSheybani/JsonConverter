@@ -20,4 +20,10 @@ class TestElement:
 
     def test_CreateElementWhenGiveAWrongNameThenItShouldReturnNone(self):
         assert_that(self.__element.get("name3"), none())
+    
+    def test_CreateElementWhenCheckForTheKeyThenItShouldReturnTrue(self):
+        assert_that(self.__element.has_key("name1"), equal_to(True))
+
+    def test_CreateElementWhenCheckForValueThenItShouldReturnTrue(self):
+        assert_that(self.__element.has_value(1), equal_to(True))
 
