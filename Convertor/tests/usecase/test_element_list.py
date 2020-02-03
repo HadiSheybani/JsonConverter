@@ -1,5 +1,6 @@
 import pytest
 from hamcrest import *
+from mock import Mock
 
 from Convertor.usecase.element_list import ElementList
 from Convertor.entity.element import Element
@@ -15,7 +16,7 @@ class TestElementList:
         assert_that(self.__elements_list.get_list(), has_length(0))
 
     def test_CreateElementListAndAddElementToItWhenCallGetListAndLengthItShouldReturnListOfElementAndLengthOne(self):
-        element = Element()
-        self.__elements_list.add(Element())
+        element = Mock(spec=Element)
+        self.__elements_list.add(element)
         assert_that(len(self.__elements_list), equal_to(1))
         assert_that(self.__elements_list.get_list(), has_length(1))
