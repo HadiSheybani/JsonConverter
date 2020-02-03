@@ -17,5 +17,9 @@ class ElementListFactory:
         return element_list
 
     def create_element_list_by_json_str(self, data_str : str) -> ElementList:
-        data = json.loads(data_str)
-        return self.create_element_list(data)
+        try:
+            data = json.loads(data_str)
+            return self.create_element_list(data)
+        except:
+            raise ValueError("Data is Wrong")
+        
