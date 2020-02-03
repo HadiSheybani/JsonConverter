@@ -30,3 +30,6 @@ class Element:
     
     def delete(self, key):
         del self.__data[key]
+    
+    def get_dict(self):
+        return self.__data.copy()
