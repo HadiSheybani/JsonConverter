@@ -1,6 +1,5 @@
 import sys
 from Convertor.framework.convertor import Convertor
-from Convertor.tests.run_tests import run_tests
 from Convertor.help_command import help_command
 from django.core.management import execute_from_command_line
 import json
