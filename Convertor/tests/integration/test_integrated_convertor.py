@@ -6,8 +6,8 @@ from Convertor.framework.convertor import Convertor
 
 class TestIntegratedConsoleParser:
     def setup_method(self, method):
-        self.__input_sample = 'Convertor/tests/samples/input.json'
-        self.__output_sample = 'Convertor/tests/samples/output.json'
+        self.__input_sample = 'samples/input.json'
+        self.__output_sample = 'samples/output.json'
 
     def test_ReadInputAndOutputSamplesFromFileWhenCallParseItShouldReturnCorrectOutput(self):
         with open(self.__input_sample, 'r') as input_sample:
