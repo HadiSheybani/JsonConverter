@@ -20,6 +20,9 @@ else:
             print(help_command)
         if sys.argv[1] == '--runserver':
             execute_from_command_line(['manage.py', 'runserver'])
+        if sys.argv[1] == '--django_command':
+            argv = sys.argv[1:]
+            execute_from_command_line(argv)
     else:
         data = sys.stdin.readlines()
         input_data = str()
