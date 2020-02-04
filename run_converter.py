@@ -2,7 +2,9 @@ import sys
 from Convertor.framework.convertor import Convertor
 from Convertor.tests.run_tests import run_tests
 from Convertor.help_command import help_command
+from django.core.management import execute_from_command_line
 import json
+import os
 
 if len(sys.argv) == 1:
     print(help_command)
@@ -12,6 +14,9 @@ else:
             run_tests()
         if sys.argv[1] == '--help':
             print(help_command)
+        if sys.argv[1] == 'runserver':
+            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'convertor_server.settings')
+            execute_from_command_line(sys.argv)
     else:
         data = sys.stdin.readlines()
         input_data = str()
