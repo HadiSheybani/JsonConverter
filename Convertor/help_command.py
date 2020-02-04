@@ -2,7 +2,7 @@
 
 
 help_command = """
-Converter Program Will Convert a json array to nested dictionary of dictionaries of arrays.
+Convertor Will Convert a json array to nested dictionary of dictionaries of arrays.
 ******************************************************************
 Usage:
 
@@ -16,16 +16,24 @@ Commands:
     --django-command    will execute django server command
 
         example:
-            python run_converter --django-command runserver
+            python run_convertor --django-command runserver
 
 
     --help        show usage
 
 you can run program by console like this:
     Linux:
-        cat input | python run_converter.py nesting_level_1 nesting_level_2 ... nesting_level_n
+        cat input | python run_convertor.py nesting_level_1 nesting_level_2 ... nesting_level_n
+
+        example:
+            cat samples/input.json | python run_convertor.py currency country city
+            
     Windows:
         type input | python run_convertor.py nesting_level_1 nesting_level_2 ... nesting_level_n
+
+        example:
+            type samples/input.json | python run_convertor.py currency country city
+    
 
 you can install requirements like this:
     pip install -r requirements.txt
