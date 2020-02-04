@@ -8,8 +8,6 @@ from rest_framework import status
 from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
-import ..Convertor.framework.
-# from Convertor.framework.convertor import Convertor
 
 @api_view(["POST"])
 def ConvertorApp(data):
