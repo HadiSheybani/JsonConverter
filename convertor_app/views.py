@@ -8,8 +8,7 @@ from rest_framework import status
 from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
-import sys
-sys.path.insert(0, '../')
+
 from Convertor.framework.convertor import Convertor
 import json
 
