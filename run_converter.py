@@ -12,15 +12,12 @@ else:
     if sys.stdin.isatty():
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'convertor_server.settings')
         if sys.argv[1] == '--runtests':
-            print('Convertor Tests:')
-            pytest.main(['-v', '-x', 'Convertor/tests'])
-            print('Rest API Tests:')
-            execute_from_command_line(['manage.py', 'test'])
+            pytest.main(['-v'])
         if sys.argv[1] == '--help':
             print(help_command)
         if sys.argv[1] == '--runserver':
             execute_from_command_line(['manage.py', 'runserver'])
-        if sys.argv[1] == '--django_command':
+        if sys.argv[1] == '--django-command':
             argv = sys.argv[1:]
             execute_from_command_line(argv)
     else:

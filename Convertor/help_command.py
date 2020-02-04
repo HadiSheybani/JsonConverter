@@ -13,10 +13,10 @@ Commands:
         example:
             python run_converter --runtests
 
-    --django_command    will execute django server command
+    --django-command    will execute django server command
 
         example:
-            python run_converter --django_command runserver
+            python run_converter --django-command runserver
 
 
     --help        show usage

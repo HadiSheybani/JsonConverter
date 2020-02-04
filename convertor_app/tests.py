@@ -16,6 +16,6 @@ class ConvertorTestCase(TestCase):
         client = Client()
         content = json.dumps(input_data)
         content_type = 'application/json'
-        response = client.post('/convertor/?currency=&country=&city=', content, content_type=content_type)
+        response = client.post('/convertor/?currency&country&city', content, content_type=content_type)
         assert_that(response.status_code, equal_to(200))
         assert_that(json.loads(response.content), equal_to(output_data))
