@@ -14,7 +14,6 @@ import json
 
 @api_view(["POST"])
 def ConvertorApp(data):
-    print(data)
     input_data = data.body
     levels = list(data.query_params.dict().keys())
     try:
