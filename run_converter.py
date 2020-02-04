@@ -5,6 +5,7 @@ from Convertor.help_command import help_command
 from django.core.management import execute_from_command_line
 import json
 import os
+import pytest
 
 if len(sys.argv) == 1:
     print(help_command)
@@ -13,7 +14,7 @@ else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'convertor_server.settings')
         if sys.argv[1] == '--runtests':
             print('Convertor Tests:')
-            run_tests()
+            pytest.main(['-v', '-x', 'Convertor/tests'])
             print('Rest API Tests:')
             execute_from_command_line(['manage.py', 'test'])
         if sys.argv[1] == '--help':
