@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test import Client
 import json
 from hamcrest import *
+from django.contrib.auth.models import User
 
 # Create your tests here.
 
@@ -14,6 +15,7 @@ class ConvertorTestCase(TestCase):
                 output_data = json.load(output_sample)
         
         client = Client()
+        login_status = client.force_login(User.objects.get_or_create(username="admin")[0])
         content = json.dumps(input_data)
         content_type = 'application/json'
         response = client.post('/convertor/?currency&country&city', content, content_type=content_type)
