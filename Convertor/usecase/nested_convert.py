@@ -20,13 +20,13 @@ class NestedConvert:
             value = element.get(key)
             if value is None:
                 continue
-            finded_element = self.__get_all_element_with_value(elements_list, value, key)
+            finded_element = self.__get_all_element_with_value(elements_list, value)
             self.__delete_key_from_finded_element(finded_element, key)
             nested_output[value] = self.__nest_convert(finded_element, keys.copy())
         return nested_output
 
 
-    def __get_all_element_with_value(self, element_list : list, value, key):
+    def __get_all_element_with_value(self, element_list : list, value):
         output = list()
         for element in element_list:
             if (element.has_value(value)):
